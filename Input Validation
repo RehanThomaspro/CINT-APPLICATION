@@ -1,0 +1,87 @@
+public class signup extends AppCompatActivity {
+ TextInputLayout regName, regUserName, regEmail, regPhone,
+regPassword;
+ Button regBtn, regtologin;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSC
+REEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+ setContentView(R.layout.activity_signup2);
+ }
+ private Boolean validateName() {
+ String val = regName.getEditText().getText().toString();
+ if (val.isEmpty()) {
+ regName.setError("Field cannot be empty");
+ return false;
+ }
+ else {
+ regName.setError(null);
+ regName.setErrorEnabled(false);
+ return true;
+ }
+ }
+ private Boolean validateUsername() {
+ String val = regUserName.getEditText().getText().toString();
+ if (val.isEmpty()) {
+ regUserName.setError("Field cannot be empty");
+ return false;
+ } else if (val.length() >= 15) {
+ regUserName.setError("Username too long");
+ return false;
+ }
+ else {
+ regUserName.setError(null);
+ regUserName.setErrorEnabled(false);
+ return true;
+ }
+ }
+ private Boolean validateEmail() {
+ String val = regEmail.getEditText().getText().toString();
+ if (val.isEmpty()) {
+ regEmail.setError("Field cannot be empty");
+ return false;
+ }
+ else {
+ regEmail.setError(null);
+ regEmail.setErrorEnabled(false);
+ return true;
+ }
+ }
+ private Boolean validatePhoneNo() {
+ String val = regPhone.getEditText().getText().toString();
+ if (val.isEmpty()) {
+ regPhone.setError("Field cannot be empty");
+ return false;
+ } else {
+ regPhone.setError(null);
+ regPhone.setErrorEnabled(false);
+ return true;
+ }
+ }
+ private Boolean validatePassword() {
+ String val = regPassword.getEditText().getText().toString();
+ if (val.isEmpty()) {
+ regPassword.setError("Field cannot be empty");
+ return false;
+ } else {
+ regPassword.setError(null);
+ regPassword.setErrorEnabled(false);
+ return true;
+ }
+ }
+ public void registerUser(View view) {
+ if(!validateName() | !validatePassword() | !validatePhoneNo() |
+!validateEmail() | !validateUsername())
+ {
+ return;
+ }
+ }
+ String name =regName.getEditText().getText().toString();
+ String username
+=regUserName.getEditText().getText().toString();
+ String email = regEmail.getEditText().getText().toString();
+ String phoneNo = regPhone.getEditText().getText().toString();
+ String password =
+regPassword.getEditText().getText().toString();
+ }
